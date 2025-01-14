@@ -1,0 +1,38 @@
+ui:
+  title: "Pump Stand Control Panel"
+  layout: "grid"
+  theme: "dark"
+
+factories:
+  - name: "ValveFactory"
+    type: "valve"
+    controls:
+      - id: "valve1"
+        label: "Valve 1"
+        type: "toggle"
+        position: [0, 0]
+      - id: "valve2"
+        label: "Valve 2"
+        type: "toggle"
+        position: [0, 1]
+  - name: "PressureSensorFactory"
+    type: "pressure_sensor"
+    controls:
+      - id: "sensor1"
+        label: "Pressure Sensor 1"
+        type: "gauge"
+        range: [0, 1000]
+        position: [1, 0]
+      - id: "sensor2"
+        label: "Pressure Sensor 2"
+        type: "gauge"
+        range: [0, 1000]
+        position: [1, 1]
+
+data_sources:
+  - id: "main_engine_controller"
+    type: "controller"
+    address: "192.168.1.100"
+    port: 80
+
+refresh_interval: 1000  # in milliseconds
